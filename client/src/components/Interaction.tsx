@@ -17,7 +17,9 @@ const Interaction = ({ postID, userID, commentlength }: Props) => {
 
   const fetchLikes = async () => {
     try {
-      const res = await axios.post(`http://localhost:3001/post/like/`, {
+      const baseUrl =
+        "https://socio-media-fje1.vercel.app" || "http://localhost:3001";
+      const res = await axios.post(`${baseUrl}/post/like/`, {
         userID: userID,
         postID,
       });
@@ -34,7 +36,9 @@ const Interaction = ({ postID, userID, commentlength }: Props) => {
 
   const handleLike = async () => {
     try {
-      await axios.post(`http://localhost:3001/post/like/${postID}`, {
+      const baseUrl =
+        "https://socio-media-fje1.vercel.app" || "http://localhost:3001";
+      await axios.post(`${baseUrl}/post/like/${postID}`, {
         likerID: userID,
       });
       // Fetch updated likes and like count

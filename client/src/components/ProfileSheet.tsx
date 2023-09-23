@@ -80,7 +80,9 @@ const ProfileSheet = ({
   const handleSubmit = async () => {
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:3001/update-user", {
+      const baseUrl =
+        "https://socio-media-fje1.vercel.app" || "http://localhost:3001";
+      const res = await axios.post(`${baseUrl}/update-user`, {
         newData,
         file,
       });

@@ -72,6 +72,9 @@ type Props = {
   getUserFriends: (userID: string) => Promise<void>;
 };
 
+const baseUrl =
+  "https://socio-media-fje1.vercel.app" || "http://localhost:3001";
+
 const DataStore = create<Props>((set) => ({
   token: null,
   userdata: null,
@@ -84,7 +87,7 @@ const DataStore = create<Props>((set) => ({
   userFriends: null,
   getData: async () => {
     try {
-      const res = await axios.get("http://localhost:3001/userdata");
+      const res = await axios.get(`${baseUrl}/userdata`);
       set({ userdata: res.data.data });
     } catch (err: any) {
       set({ error: err.message, isLoading: false });
@@ -100,7 +103,7 @@ const DataStore = create<Props>((set) => ({
   },
   getToken: async () => {
     try {
-      const res = await axios.get("http://localhost:3001/get-cookie");
+      const res = await axios.get(`${baseUrl}/get-cookie`);
 
       set({ token: res.data.token });
     } catch (err: any) {
@@ -109,7 +112,7 @@ const DataStore = create<Props>((set) => ({
   },
   getPost: async (id: string) => {
     try {
-      const res = await axios.get(`http://localhost:3001/post/user/${id}`);
+      const res = await axios.get(`${baseUrl}/post/user/${id}`);
       set({ userpost: res.data.posts });
     } catch (err: any) {
       set({ error: err.message, isLoading: false });
@@ -117,7 +120,7 @@ const DataStore = create<Props>((set) => ({
   },
   getAllComments: async (id: string) => {
     try {
-      const res = await axios.get(`http://localhost:3001/comment/${id}`);
+      const res = await axios.get(`${baseUrl}/comment/${id}`);
       set({ allComments: res.data.comments });
     } catch (err: any) {
       set({ error: err.message, isLoading: false });
@@ -125,7 +128,7 @@ const DataStore = create<Props>((set) => ({
   },
   getAllUsers: async (userID: string) => {
     try {
-      const res = await axios.post(`http://localhost:3001/users`, { userID });
+      const res = await axios.post(`${baseUrl}/users`, { userID });
       set({ allUsers: res.data.notuserfriends });
     } catch (err: any) {
       set({ error: err.message, isLoading: false });
@@ -133,9 +136,7 @@ const DataStore = create<Props>((set) => ({
   },
   getUserFriends: async (userID: string) => {
     try {
-      const res = await axios.get(
-        `http://localhost:3001/user/friends/${userID}`
-      );
+      const res = await axios.get(`${baseUrl}/user/friends/${userID}`);
       set({ userFriends: res.data.formattedFriends });
     } catch (err: any) {
       set({ error: err.message, isLoading: false });

@@ -46,7 +46,9 @@ export default function Register() {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:3001/register", {
+      const baseUrl =
+        "https://socio-media-fje1.vercel.app" || "http://localhost:3001";
+      const response = await axios.post(`${baseUrl}/register`, {
         data,
         file,
       });

@@ -8,7 +8,9 @@ export default function LogOut() {
   const navigate = useNavigate();
   const setToken = AuthStore((state) => state.setToken);
   const handleLogout = async () => {
-    await axios.get("http://localhost:3001/logout");
+    const baseUrl =
+      "https://socio-media-fje1.vercel.app" || "http://localhost:3001";
+    await axios.get(`${baseUrl}/logout`);
     setToken("");
     navigate("/login");
   };

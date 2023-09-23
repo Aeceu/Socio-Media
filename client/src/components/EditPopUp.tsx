@@ -88,10 +88,12 @@ export default function EditPopUp({ post }: Props) {
   const handleSubmit = async () => {
     try {
       setLoading(true);
-      const res = await axios.post(
-        `http://localhost:3001/post/update/${post._id}`,
-        { newPost, file }
-      );
+      const baseUrl =
+        "https://socio-media-fje1.vercel.app" || "http://localhost:3001";
+      const res = await axios.post(`${baseUrl}/post/update/${post._id}`, {
+        newPost,
+        file,
+      });
       console.log(res.data);
       getAllPost();
     } catch (error: any) {

@@ -56,9 +56,9 @@ const EditDelete = ({ post }: Props) => {
   const handleDelete = async () => {
     try {
       setLoading(true);
-      const res = await axios.post(
-        `http://localhost:3001/post/delete/${post._id}`
-      );
+      const baseUrl =
+        "https://socio-media-fje1.vercel.app" || "http://localhost:3001";
+      const res = await axios.post(`${baseUrl}/post/delete/${post._id}`);
       toast.success(res.data.message, {
         className: "bg-background text-inherit border-2",
       });

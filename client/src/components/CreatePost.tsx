@@ -45,7 +45,9 @@ export default function CreatePost({ userID, img }: Props) {
   async function handleSubmit() {
     try {
       setLoading(true);
-      const res = await axios.post(`http://localhost:3001/post/${userID}`, {
+      const baseUrl =
+        "https://socio-media-fje1.vercel.app" || "http://localhost:3001";
+      const res = await axios.post(`${baseUrl}/post/${userID}`, {
         post,
         img: file,
       });

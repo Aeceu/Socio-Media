@@ -18,7 +18,9 @@ export default function CreateCommentCard({ postID }: Props) {
   const handleComment = async () => {
     try {
       setLoading(true);
-      await axios.post("http://localhost:3001/comment", {
+      const baseUrl =
+        "https://socio-media-fje1.vercel.app" || "http://localhost:3001";
+      await axios.post(`${baseUrl}/comment`, {
         comment,
         postID,
         userID: userdata?._id,
