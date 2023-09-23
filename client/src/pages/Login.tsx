@@ -31,7 +31,7 @@ export default function Login() {
       setLoading(true);
       const baseUrl =
         "https://socio-media-fje1.vercel.app" || "http://localhost:3001";
-      const res = await axios.post(`${baseUrl}login`, formData);
+      const res = await axios.post(`${baseUrl}/login`, formData);
       toast.success(res.data.message, {
         className: "bg-background text-inherit border-2",
       });
