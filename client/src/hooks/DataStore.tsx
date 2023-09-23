@@ -95,7 +95,7 @@ const DataStore = create<Props>((set) => ({
   },
   getAllPost: async () => {
     try {
-      const res = await axios.get("http://localhost:3001/post");
+      const res = await axios.get(`${baseUrl}/post`);
       set({ allPosts: res.data.posts });
     } catch (err: any) {
       set({ error: err.message, isLoading: false });
