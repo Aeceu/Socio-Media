@@ -2,11 +2,14 @@ import { LucideLogOut } from "lucide-react";
 import { Button } from "./ui/button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import AuthStore from "@/hooks/AuthStore";
 
 export default function LogOut() {
   const navigate = useNavigate();
+  const setToken = AuthStore((state) => state.setToken);
   const handleLogout = async () => {
     await axios.get("http://localhost:3001/logout");
+    setToken("");
     navigate("/login");
   };
 

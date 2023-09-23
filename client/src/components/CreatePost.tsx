@@ -49,7 +49,6 @@ export default function CreatePost({ userID, img }: Props) {
         post,
         img: file,
       });
-      console.log(res.data);
 
       setFile(null);
       setPost("");

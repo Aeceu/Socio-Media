@@ -29,10 +29,10 @@ const SideBar = () => {
   }
 
   return (
-    <div className="w-1/4 min-h-screen md:flex hidden flex-col  justify-between p-4">
+    <div className="z-50 w-1/4 min-h-screen md:flex hidden flex-col  justify-between p-4">
       <div className=" h-full  ">
-        <div className="flex gap-2 items-center py-2">
-          <Avatar className="w-[35px] h-[35px] ">
+        <div className="flex gap-2 items-center py-2 ">
+          <Avatar className="w-[35px] h-[35px]">
             <AvatarImage
               src={userdata?.profile.url}
               alt="userlogo"

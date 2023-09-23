@@ -33,7 +33,9 @@ export default function Feed() {
         )}
       </div>
       <div className="flex flex-col-reverse">
-        {allPost ? (
+        {allPost?.length === 0 ? (
+          <h1 className="w-full text-center p-4">No post available.</h1>
+        ) : allPost ? (
           allPost.map((post) => <PostCard key={post._id} post={post} />)
         ) : (
           <PostCardSkeleton />

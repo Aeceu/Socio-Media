@@ -12,9 +12,10 @@ import { ChangeEvent, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { LucideLoader2, LucideMoon, LucideSun } from "lucide-react";
-import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 import { useTheme } from "@/components/ThemeToggle";
+import LoginBackground from "@/components/LoginBackground";
+import LoginInfo from "@/components/LoginInfo";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -69,42 +70,12 @@ export default function Register() {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center">
-      <div className="filter blur-3xl opacity-50 bg-rose-900  rounded-full w-[1000px] h-[300px] absolute  animate-blob animation-delay-2000 -top-20" />
-      <div className="filter blur-3xl opacity-50 bg-fuchsia-500  rounded-full w-[500px] h-[500px] rotate-45 absolute animate-blob -left-20 -bottom-20" />
-      <div className="filter blur-3xl opacity-50 bg-indigo-500  rounded-full w-[500px] h-[500px] rotate-45 absolute   animate-blob animation-delay-4000 -right-20 -bottom-20" />
-      <div className="flex items-center justify-center gap-24  p-4  bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100/30">
-        <div className="w-[45%] flex flex-col ">
-          <h1 className={` text-8xl text-cursive text-emerald-600 `}>
-            Socio Media
-          </h1>
-          <p className="text-lg ">
-            Unlock a World of Interactions - Welcome to Social Media: Your
-            Gateway to Global Networking.
-          </p>
-          <h1 className="text-lg mt-4 hover:underline hover:text-emerald-600 cursor-pointer">
-            Support my socials:
-          </h1>
-          <div className="flex gap-2 py-2">
-            <Link
-              to="https://github.com/kaneki081"
-              className="hover:text-emerald-500 "
-            >
-              <FaGithub size="1.5rem" />
-            </Link>
-            <Link
-              to="https://www.linkedin.com/in/jose-acebuche-4a5b851b5/"
-              className="hover:text-emerald-500 "
-            >
-              <FaLinkedin size="1.5rem" />
-            </Link>
-            <Link
-              to="https://www.facebook.com/Aeceuuu"
-              className="hover:text-emerald-500 "
-            >
-              <FaFacebook size="1.5rem" />
-            </Link>
-          </div>
-        </div>
+      <LoginBackground />
+      <div className="flex md:flex-row flex-col items-center justify-center md:gap-24 gap-4  p-4  bg-gray-400 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 border border-gray-100/30">
+        <LoginInfo />
+        <h1 className={`md:hidden text-cursive text-4xl text-emerald-500`}>
+          Socio Media
+        </h1>
         <form
           onSubmit={handleSubmit}
           className=" flex items-center justify-center"

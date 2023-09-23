@@ -23,18 +23,21 @@ const NavBar = () => {
     <nav className="fixed md:hidden w-full h-[50px] flex items-center justify-between px-24  border-y-[1px] text-inherit z-50 bg-background ">
       {/* Mobile view */}
       <div className="w-full  flex gap-4 items-center justify-between ">
-        <Avatar className="w-[30px] h-[30px]">
+        <Avatar className="w-[30px] h-[30px] cursor-pointer">
           <AvatarImage src={userdata?.profile.url} alt="userlogo" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
-        <LucideHome onClick={() => navigate("/")} />
+        <LucideHome onClick={() => navigate("/")} className="cursor-pointer" />
         <ProfileSheet side="bottom">
-          <LucideUser />
+          <LucideUser className="cursor-pointer" />
         </ProfileSheet>
-        <div className="flex gap-2 items-center py-2" onClick={handleTheme}>
+        <div
+          className="flex gap-2 items-center py-2 cursor-pointer"
+          onClick={handleTheme}
+        >
           {theme === "dark" ? <LucideMoon /> : <LucideSun />}
         </div>
-        <LucideSearch />
+        <LucideSearch className="cursor-pointer" />
       </div>
     </nav>
   );

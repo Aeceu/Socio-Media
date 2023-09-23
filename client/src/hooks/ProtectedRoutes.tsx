@@ -1,17 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Navigate, Outlet } from "react-router-dom";
-import DataStore from "./DataStore";
-import { useEffect } from "react";
+import { Outlet, Navigate } from "react-router-dom";
+import AuthStore from "./AuthStore";
 
-const Auth = () => {
-  const token = DataStore((state) => state.token);
-  const getToken = DataStore((state) => state.getToken);
-
-  useEffect(() => {
-    getToken();
-  }, [getToken]);
-  return token;
-};
+export default function Auth() {
+  const tokenID = AuthStore((state) => state.tokenID);
+  return tokenID;
+}
 
 export const ProtectedRoutes = () => {
   const isAuth = Auth(); // Use your Auth component or state management here
@@ -22,5 +15,5 @@ export const ProtectedRoutes = () => {
 export const PublicRoutes = () => {
   const isAuth = Auth(); // Use your Auth component or state management here
 
-  return !isAuth ? <Outlet /> : <Navigate to="/" />;
+  return isAuth ? <Navigate to="/" /> : <Outlet />;
 };
