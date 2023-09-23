@@ -9,7 +9,8 @@ import axios from "axios";
 import { ProtectedRoutes, PublicRoutes } from "./hooks/ProtectedRoutes";
 
 const App = () => {
-  axios.defaults.baseURL = "http://localhost:3001";
+  axios.defaults.baseURL =
+    "https://socio-media-fje1.vercel.app/" || "http://localhost:3001";
   axios.defaults.withCredentials = true;
   return (
     <Routes>
