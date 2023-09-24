@@ -24,7 +24,7 @@ app.use(
 );
 app.use(
   cors({
-    origin: "https://socio-media-smoky.vercel.app" || "http://localhost:5173",
+    origin: ["https://socio-media-smoky.vercel.app", "http://localhost:5173"],
     credentials: true, // This allows cookies to be sent along with the request
   })
 );
