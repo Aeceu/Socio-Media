@@ -19,9 +19,7 @@ const SideBar = () => {
   const getData = DataStore((state) => state.getData);
 
   useEffect(() => {
-    setTimeout(() => {
-      getData();
-    }, 1000);
+    getData();
   }, [getData]);
 
   if (!userdata) {
