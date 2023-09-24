@@ -72,8 +72,7 @@ type Props = {
   getUserFriends: (userID: string) => Promise<void>;
 };
 
-const baseUrl =
-  "https://socio-media-fje1.vercel.app" || "http://localhost:3001";
+const baseUrl = "https://socio-media-fje1.vercel.app";
 
 const DataStore = create<Props>((set) => ({
   token: null,
