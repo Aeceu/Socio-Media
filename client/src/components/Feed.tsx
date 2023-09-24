@@ -11,9 +11,7 @@ export default function Feed() {
   const getAllPost = DataStore((state) => state.getAllPost);
 
   useEffect(() => {
-    setTimeout(() => {
-      getAllPost();
-    }, 1000);
+    getAllPost();
   }, [getAllPost]);
 
   return (
